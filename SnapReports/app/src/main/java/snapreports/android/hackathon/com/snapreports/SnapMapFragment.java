@@ -88,6 +88,10 @@ public class SnapMapFragment extends SupportMapFragment implements LoaderManager
                 mGoogleMap.moveCamera(movement);
             }
         }
+        // Comment this else statement if the database is empty
+        // The bug is when the database is empty the "latLng" variable is null and the app will crash
+        // Comment this else statement, build and test for device and then populate the database by posting Snaps
+        // Uncomment this out after populating the database and rebuild and test.
         else {
             CameraUpdate movement = CameraUpdateFactory.newLatLngZoom(latLng, 15);
             mGoogleMap.moveCamera(movement);
